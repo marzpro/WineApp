@@ -16,6 +16,7 @@ body {
 .slider-group {
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Space between items */
     margin-bottom: 10px; /* Space between slider groups */
 }
 
