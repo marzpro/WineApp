@@ -1,18 +1,19 @@
 // script.js
-const sliders = document.querySelectorAll('.slider');
-
-sliders.forEach(slider => {
-    slider.addEventListener('input', function() {
-        const valueDisplay = document.getElementById(`circle${this.id.slice(-1)}`);
-        valueDisplay.textContent = this.value;
-    });
-});
 
 // Function to update the value display for sliders
 function updateSliderValue(slider, circleId) {
     const valueDisplay = document.getElementById(circleId);
     valueDisplay.textContent = slider.value;
 }
+
+// Add event listeners for all sliders
+const sliders = document.querySelectorAll('.slider');
+sliders.forEach(slider => {
+    slider.addEventListener('input', function() {
+        const valueDisplay = document.getElementById(`circle${this.id.slice(-1)}`);
+        valueDisplay.textContent = this.value; // Update the circle display
+    });
+});
 
 // Add event listeners for Marz sliders
 const marzSliders = document.querySelectorAll('#marzSlider1, #marzSlider2, #marzSlider3, #marzSlider4');
@@ -48,25 +49,24 @@ document.getElementById('calculateButton').addEventListener('click', function() 
     ];
 
     const marzValues = [
-        parseFloat(document.getElementById('slider1').value),
-        parseFloat(document.getElementById('slider2').value),
-        parseFloat(document.getElementById('slider3').value),
-        parseFloat(document.getElementById('slider4').value)
+        parseFloat(document.getElementById('marzSlider1').value),
+        parseFloat(document.getElementById('marzSlider2').value),
+        parseFloat(document.getElementById('marzSlider3').value),
+        parseFloat(document.getElementById('marzSlider4').value)
     ];
 
     const juneValues = [
-        parseFloat(document.getElementById('slider5').value),
-        parseFloat(document.getElementById('slider6').value),
-        parseFloat(document.getElementById('slider7').value),
-        parseFloat(document.getElementById('slider8').value)
+        parseFloat(document.getElementById('juneSlider1').value),
+        parseFloat(document.getElementById('juneSlider2').value),
+        parseFloat(document.getElementById('juneSlider3').value),
+        parseFloat(document.getElementById('juneSlider4').value)
     ];
 
     let marzScore = 0;
     let juneScore = 0;
+    const pointsBreakdown = []; // Points breakdown for display
 
-    // Points for characteristics
-    const pointsBreakdown = [];
-
+    // Calculate scores based on differences
     for (let i = 0; i < actualValues.length; i++) {
         const marzDiff = Math.abs(actualValues[i] - marzValues[i]);
         const juneDiff = Math.abs(actualValues[i] - juneValues[i]);
@@ -78,14 +78,8 @@ document.getElementById('calculateButton').addEventListener('click', function() 
             juneScore++;
             pointsBreakdown.push(`June wins category ${i + 1} (1 point)`);
         } else {
-            // If both are equally wrong, the one with the lower actual value wins
-            if (marzValues[i] < juneValues[i]) {
-                marzScore++;
-                pointsBreakdown.push(`Marz wins category ${i + 1} (tie-breaker, 1 point)`);
-            } else {
-                juneScore++;
-                pointsBreakdown.push(`June wins category ${i + 1} (tie-breaker, 1 point)`);
-            }
+            // Tie-breaker logic
+            pointsBreakdown.push(`Category ${i + 1} is a tie (0 points)`);
         }
     }
 
@@ -117,6 +111,7 @@ document.getElementById('calculateButton').addEventListener('click', function() 
         pointsBreakdown.push(`June gets a point for flavor: ${juneFlavor2} (1 point)`);
     }
 
+    // Determine the result
     let resultText = '';
     if (marzScore > juneScore) {
         resultText = `Marz wins! Final Score: Marz ${marzScore}, June ${juneScore}`;
@@ -126,6 +121,7 @@ document.getElementById('calculateButton').addEventListener('click', function() 
         resultText = `It's a tie! Final Score: Marz ${marzScore}, June ${juneScore}`;
     }
 
+    // Update the result and points breakdown in the DOM
     document.getElementById('result').textContent = resultText;
     document.getElementById('pointsBreakdown').innerHTML = pointsBreakdown.join('<br>');
 });
