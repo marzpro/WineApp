@@ -27,18 +27,20 @@ body {
 
 .slider {
     flex-grow: 1; /* Allow the slider to take the remaining space */
+    width: 100%; /* Ensure the slider takes full width */
+    max-width: 100%; /* Ensure sliders do not exceed container width */
     -webkit-appearance: none; /* Remove default styling */
     appearance: none; /* Remove default styling */
     height: 8px; /* Track height */
     background: #ddd; /* Track color */
     border-radius: 10px; /* Rounded track */
-    width: 100%; /* Ensure the slider takes full width */
 }
 
 .slider-label {
     margin-left: 10px; /* Space between the slider and the right-hand label */
     width: 50px; /* Fixed width for the right-hand label */
     text-align: left; /* Align text to the left */
+    flex-shrink: 0; /* Prevent label from shrinking */
 }
 
 /* Styles for the slider thumb */
@@ -130,4 +132,14 @@ input[type="text"]:last-child {
     margin-top: 10px; /* Space above the border */
     margin-bottom: 20px; /* Space below the border */
     padding-bottom: 10px; /* Space below the inputs */
+}
+
+/* styles.css */
+/* Assuming the button has a class of .calculate-button */
+.calculate-button {
+    font-size: 1.1em; /* Decrease font size for a smaller button */
+    padding: 10px; /* Adjust padding for a smaller appearance */
+    border-radius: 10px; /* Round the corners */
+    border: 1px solid #A11222; /* Set border color to match slider buttons */
+    background-color: white; /* Optional: Set background color */
 }
