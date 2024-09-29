@@ -1,0 +1,132 @@
+/* styles.css */
+body {
+    font-family: 'SF Pro Display', Arial, sans-serif; /* Use SF Pro Display */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)); /* Darker gradient */
+}
+
+.container {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque for readability */
+    padding: 20px; /* Optional: Add padding */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.slider-group {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 10px; /* Space between slider groups */
+}
+
+.slider-group label {
+    width: 100px; /* Set a fixed width for labels */
+    margin-right: 10px; /* Space between label and slider */
+}
+
+.slider {
+    flex-grow: 1; /* Allow the slider to take the remaining space */
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none; /* Remove default styling */
+    height: 8px; /* Track height */
+    background: #ddd; /* Track color */
+    border-radius: 10px; /* Rounded track */
+    width: 100%; /* Ensure the slider takes full width */
+}
+
+.slider-label {
+    margin-left: 10px; /* Space between the slider and the right-hand label */
+    width: 50px; /* Fixed width for the right-hand label */
+    text-align: left; /* Align text to the left */
+}
+
+/* Styles for the slider thumb */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none; /* Remove default styling */
+    width: 20%; /* Thumb width (1 out of 5 units) */
+    height: 8px; /* Thumb height equal to slider height */
+    border-radius: 5px; /* Rounded corners for thumb */
+    background: #A11222; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 20%; /* Thumb width (1 out of 5 units) */
+    height: 8px; /* Thumb height equal to slider height */
+    border-radius: 5px; /* Rounded corners for thumb */
+    background: #A11222; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.slider::-ms-thumb {
+    width: 20%; /* Thumb width (1 out of 5 units) */
+    height: 8px; /* Thumb height equal to slider height */
+    border-radius: 5px; /* Rounded corners for thumb */
+    background: #A11222; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Styles for the slider track */
+.slider::-webkit-slider-runnable-track {
+    background: #ddd; /* Track color */
+    border-radius: 10px; /* Rounded track */
+}
+
+.slider::-moz-range-track {
+    background: #ddd; /* Track color */
+    border-radius: 10px; /* Rounded track */
+}
+
+.slider::-ms-track {
+    background: #ddd; /* Track color */
+    height: 8px; /* Track height */
+    border: none; /* Remove border */
+    color: transparent; /* Hide track color */
+    border-radius: 10px; /* Rounded track */
+}
+
+/* Styles for the circular value display */
+.value-circle {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 30px; /* Circle diameter */
+    height: 30px; /* Circle diameter */
+    border-radius: 50%; /* Make it circular */
+    background-color: #A11222; /* Circle color */
+    color: white; /* Text color */
+    margin-left: 10px; /* Space between label and circle */
+    font-size: 14px; /* Font size for the number */
+    box-sizing: border-box; /* Ensure padding/border doesn't affect size */
+}
+
+input[type="text"],
+input[type="range"],
+textarea {
+    border-radius: 15px; /* Adjust this value for more or less rounding */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+input[type="text"] {
+    border-radius: 20px; /* Adjust this value for more or less rounding */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    width: calc(50% - 22px); /* Set width to 50% and account for padding and border */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin-right: 10px; /* Add some space between the two input boxes */
+}
+
+input[type="text"]:last-child {
+    margin-right: 0; /* Remove margin from the last input box */
+}
+
+.flavour-inputs {
+    border-bottom: 2px solid #ccc; /* Add a bottom border */
+    margin-top: 10px; /* Space above the border */
+    margin-bottom: 20px; /* Space below the border */
+    padding-bottom: 10px; /* Space below the inputs */
+}

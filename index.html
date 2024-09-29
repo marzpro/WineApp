@@ -1,0 +1,128 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Sliders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Marz Section -->
+        <div class="section-box">
+            <h1>Marz</h1>
+            <div class="slider-group">
+                <label>Light</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider1">
+                <span class="value-circle" id="marzCircle1">3</span>
+                <span class="slider-label">Bold</span>
+            </div>
+            <div class="slider-group">
+                <label>Smooth</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider2">
+                <span class="value-circle" id="marzCircle2">3</span>
+                <span class="slider-label">Tannic</span>
+            </div>
+            <div class="slider-group">
+                <label>Dry</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider3">
+                <span class="value-circle" id="marzCircle3">3</span>
+                <span class="slider-label">Sweet</span>
+            </div>
+            <div class="slider-group">
+                <label>Soft</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider4">
+                <span class="value-circle" id="marzCircle4">3</span>
+                <span class="slider-label">Acidic</span>
+            </div>
+            <h2>Flavours:</h2>
+            <div class="flavour-inputs"> <!-- New div for flavor inputs -->
+                <div style="display: flex; justify-content: space-between;">
+                    <input type="text" id="marzFlavor1" placeholder="Flavor One">
+                    <input type="text" id="marzFlavor2" placeholder="Flavor Two">
+                </div>
+            </div>
+        </div>
+
+        <!-- June Section -->
+        <div class="section-box">
+            <h1>June</h1>
+            <div class="slider-group">
+                <label>Light</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider1">
+                <span class="value-circle" id="juneCircle1">3</span>
+                <span class="slider-label">Bold</span>
+            </div>
+            <div class="slider-group">
+                <label>Smooth</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider2">
+                <span class="value-circle" id="juneCircle2">3</span>
+                <span class="slider-label">Tannic</span>
+            </div>
+            <div class="slider-group">
+                <label>Dry</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider3">
+                <span class="value-circle" id="juneCircle3">3</span>
+                <span class="slider-label">Sweet</span>
+            </div>
+            <div class="slider-group">
+                <label>Soft</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider4">
+                <span class="value-circle" id="juneCircle4">3</span>
+                <span class="slider-label">Acidic</span>
+            </div>
+            <h2>Flavours:</h2>
+            <div class="flavour-inputs"> <!-- New div for flavor inputs -->
+                <div style="display: flex; justify-content: space-between;">
+                    <input type="text" id="juneFlavor1" placeholder="Flavor One">
+                    <input type="text" id="juneFlavor2" placeholder="Flavor Two">
+                </div>
+            </div>
+        </div>
+
+        <!-- Actual Section -->
+        <div class="section-box">
+            <h1>Actual</h1>
+            <div class="slider-group">
+                <label>Light</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider1">
+                <span class="value-circle" id="actualCircle1">3</span>
+                <span class="slider-label">Bold</span>
+            </div>
+            <div class="slider-group">
+                <label>Smooth</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider2">
+                <span class="value-circle" id="actualCircle2">3</span>
+                <span class="slider-label">Tannic</span>
+            </div>
+            <div class="slider-group">
+                <label>Dry</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider3">
+                <span class="value-circle" id="actualCircle3">3</span>
+                <span class="slider-label">Sweet</span>
+            </div>
+            <div class="slider-group">
+                <label>Soft</label>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider4">
+                <span class="value-circle" id="actualCircle4">3</span>
+                <span class="slider-label">Acidic</span>
+            </div>
+
+            <h2>Flavours:</h2>
+            <div class="flavour-inputs"> <!-- New div for flavor inputs -->
+                <div style="display: flex; justify-content: space-between;">
+                    <input type="text" id="actualFlavor1" placeholder="Actual Flavor One">
+                    <input type="text" id="actualFlavor2" placeholder="Actual Flavor Two">
+                </div>
+            </div>
+        </div>
+
+        <button id="calculateButton" style="margin-top: 30px;">Calculate Winner</button>
+        <h2 id="result"></h2>
+        <h3 id="pointsBreakdown"></h3>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
