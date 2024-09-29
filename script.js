@@ -40,7 +40,7 @@ actualSliders.forEach(slider => {
 });
 
 // Function to calculate the winner
-document.getElementById('calculateButton').addEventListener('click', function() {
+document.querySelector('.calculate-button').addEventListener('click', function() {
     const actualValues = [
         parseFloat(document.getElementById('actualSlider1').value),
         parseFloat(document.getElementById('actualSlider2').value),
