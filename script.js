@@ -125,3 +125,23 @@ document.querySelector('.calculate-button').addEventListener('click', function()
     document.getElementById('result').textContent = resultText;
     document.getElementById('pointsBreakdown').innerHTML = pointsBreakdown.join('<br>');
 });
+
+function calculateResults() {
+    // Get values from sliders for each section
+    const marzLight = document.getElementById('marzSlider1').value;
+    const marzBold = document.getElementById('marzSlider2').value;
+
+    const juneLight = document.getElementById('juneSlider1').value;
+    const juneBold = document.getElementById('juneSlider2').value;
+
+    const actualLight = document.getElementById('actualSlider1').value;
+    const actualBold = document.getElementById('actualSlider2').value;
+
+    // Initialize results
+    let marzResult = marzLight > marzBold ? 'Light' : 'Bold';
+    let juneResult = juneLight > juneBold ? 'Light' : 'Bold';
+    let actualResult = actualLight > actualBold ? 'Light' : 'Bold';
+
+    // Display the results
+    document.getElementById('result').innerText = `Marz: ${marzResult}, June: ${juneResult}, Actual: ${actualResult}`;
+}
