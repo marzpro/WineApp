@@ -114,15 +114,15 @@ document.querySelector('.calculate-button').addEventListener('click', function()
     // Determine the result
     let resultText = '';
     if (marzScore > juneScore) {
-        resultText = `Marz wins! Final Score: Marz ${marzScore}, June ${juneScore}`;
+        resultText = `Marz wins! 🎉<br>Final Score: Marz ${marzScore}, June ${juneScore}`;
     } else if (juneScore > marzScore) {
-        resultText = `June wins! Final Score: Marz ${marzScore}, June ${juneScore}`;
+        resultText = `June wins! 🎉<br>Final Score: Marz ${marzScore}, June ${juneScore}`;
     } else {
-        resultText = `It's a tie! Final Score: Marz ${marzScore}, June ${juneScore}`;
+        resultText = `It's a tie! 😮<br>Final Score: Marz ${marzScore}, June ${juneScore}`;
     }
 
     // Update the result and points breakdown in the DOM
-    document.getElementById('result').textContent = resultText;
+    document.getElementById('result').innerHTML = resultText; // Use innerHTML to render the line break
     document.getElementById('pointsBreakdown').innerHTML = pointsBreakdown.join('<br>');
 });
 
