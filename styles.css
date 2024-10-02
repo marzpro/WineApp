@@ -3,26 +3,42 @@ body {
     font-family: 'SF Pro Display', Arial, sans-serif; /* Use SF Pro Display */
     margin: 0;
     padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)); /* Darker gradient */
+    background-color: #1D1D1D; /* Set to dark grey */
+    color: #D9D9D9; /* Changed font color to #D9D9D9 */
 }
 
 .container {
+    position: relative; /* Enable positioning for the pseudo-element */
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque for readability */
+    background: linear-gradient(-33deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1)); /* Gradient fill */
     padding: 20px; /* Optional: Add padding */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    border-radius: 20px; /* Optional: Add rounded corners */
+    backdrop-filter: blur(80px); /* Added background blur effect */
+}
+
+.container::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    bottom: 0; /* Stretch to the bottom */
+    background-color: #1F1F1F; /* Background shape color */
+    border-radius: 10px; /* Match the container's border radius */
+    z-index: -1; /* Place it behind the container */
 }
 
 .slider-group {
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center align items vertically */
     justify-content: space-between; /* Space between items */
-    margin-bottom: 10px; /* Space between slider groups */
+    margin-bottom: 5px; /* Space between slider groups */
+    overflow: visible; /* Ensure overflow is visible */
 }
 
 .slider-group label {
     width: 100px; /* Set a fixed width for labels */
-    margin-right: 10px; /* Space between label and slider */
+    margin-right: 0px; /* Space between label and slider */
 }
 
 .slider {
@@ -34,6 +50,7 @@ body {
     height: 8px; /* Track height */
     background: #ddd; /* Track color */
     border-radius: 10px; /* Rounded track */
+    font-weight: 600; /* Set font weight to semi-bold */
 }
 
 .slider-label {
@@ -91,17 +108,19 @@ body {
 
 /* Styles for the circular value display */
 .value-circle {
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    width: 30px; /* Circle diameter */
-    height: 30px; /* Circle diameter */
-    border-radius: 50%; /* Make it circular */
-    background-color: #A11222; /* Circle color */
-    color: white; /* Text color */
-    margin-left: 10px; /* Space between label and circle */
-    font-size: 14px; /* Font size for the number */
-    box-sizing: border-box; /* Ensure padding/border doesn't affect size */
+    width: 30px; /* Set width to 30 */
+    height: 30px; /* Set height to 30 */
+    border-radius: 50%; /* Make it a perfect circle */
+    background-color: #A11222; /* Original color */
+    box-sizing: content-box; /* Changed to content-box for perfect circle */
+    margin-left: 10px; /* Space between the slider label and the circle */
+    display: flex; /* Use flexbox for centering text */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    color: white; /* Text color for visibility */
+    font-weight: 600; /* Semi-bold for numbers */
+    flex-shrink: 0; /* Prevent the circle from shrinking */
+    font-size: 14px; /* Adjust font size if necessary */
 }
 
 input[type="text"],
@@ -109,7 +128,7 @@ input[type="range"],
 textarea {
     border-radius: 15px; /* Adjust this value for more or less rounding */
     border: 1px solid #ccc; /* Optional: Add a border */
-    padding: 10px; /* Optional: Add padding for better appearance */
+    padding: 8px; /* Optional: Add padding for better appearance */
     width: calc(100% - 22px); /* Adjust width to account for padding and border */
     box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
@@ -128,10 +147,15 @@ input[type="text"]:last-child {
 }
 
 .flavour-inputs {
-    border-bottom: 2px solid #ccc; /* Add a bottom border */
     margin-top: 10px; /* Space above the border */
-    margin-bottom: 20px; /* Space below the border */
-    padding-bottom: 10px; /* Space below the inputs */
+    margin-bottom: 0px; /* Space below the border */
+    padding-bottom: 00px; /* Space below the inputs */
+    width: 60%; /* Keep the section line full width */
+}
+
+.flavour-inputs input {
+    width: 60%; /* Shortened width of input boxes by 40% */
+    margin-bottom: 0px; /* Space between input fields */
 }
 
 /* styles.css */
@@ -139,7 +163,21 @@ input[type="text"]:last-child {
 .calculate-button {
     font-size: 1.1em; /* Decrease font size for a smaller button */
     padding: 10px; /* Adjust padding for a smaller appearance */
-    border-radius: 10px; /* Round the corners */
+    border-radius: 80px; /* Round the corners */
     border: 1px solid #A11222; /* Set border color to match slider buttons */
-    background-color: white; /* Optional: Set background color */
+    background-color: #A11222; /* Optional: Set background color */
+    color: white; /* Change font color to white */
+}
+
+.flavour-heading {
+    margin-bottom: 5px; /* Reduced distance to 5 pixels */
+}
+
+/* Add styles for section boxes */
+.section-box {
+    border: 2px solid #9C9C9C; /* Updated border color */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px; /* Add some padding inside the box */
+    margin-bottom: 20px; /* Space between section boxes */
+    background-color: #2A2A2A; /* Optional: Set a background color for contrast */
 }
