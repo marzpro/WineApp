@@ -38,7 +38,7 @@ body {
 
 .slider-group label {
     width: 100px; /* Set a fixed width for labels */
-    margin-right: 0px; /* Space between label and slider */
+    margin-right: 10px; /* Space between label and slider */
 }
 
 .slider {
@@ -154,7 +154,7 @@ input[type="text"]:last-child {
 }
 
 .flavour-inputs input {
-    width: 60%; /* Shortened width of input boxes by 40% */
+    width: 80%; /* Shortened width of input boxes by 40% */
     margin-bottom: 0px; /* Space between input fields */
 }
 
