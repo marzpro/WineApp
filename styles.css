@@ -181,3 +181,16 @@ input[type="text"]:last-child {
     margin-bottom: 20px; /* Space between section boxes */
     background-color: #2A2A2A; /* Optional: Set a background color for contrast */
 }
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative; /* Positioning for the image */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Hide overflow */
+}
+
+.hero-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space */
+}
