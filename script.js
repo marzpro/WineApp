@@ -92,6 +92,50 @@ function initializeSliders() {
     });
 }
 
+// Enhance touch interaction for sliders
+document.querySelectorAll('.slider').forEach(slider => {
+    let thumb = slider.nextElementSibling;
+    let isDragging = false;
+    let touchStartX, sliderRect;
+
+    slider.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        sliderRect = slider.getBoundingClientRect();
+        updateSliderValue(e.touches[0].clientX);
+        e.preventDefault(); // Prevent scrolling while dragging
+    }, { passive: false });
+
+    document.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        updateSliderValue(e.touches[0].clientX);
+        e.preventDefault(); // Prevent scrolling while dragging
+    }, { passive: false });
+
+    document.addEventListener('touchend', function() {
+        isDragging = false;
+    });
+
+    function updateSliderValue(clientX) {
+        const sliderLeft = sliderRect.left;
+        const sliderWidth = sliderRect.width;
+        const x = clientX - sliderLeft;
+        const percentage = Math.max(0, Math.min(1, x / sliderWidth));
+        const range = slider.max - slider.min;
+        const value = Math.round((percentage * range + Number(slider.min)) * 2) / 2; // Round to nearest 0.5
+        
+        slider.value = value;
+        const thumbElement = slider.closest('.slider-container').querySelector('.slider-thumb');
+        if (thumbElement) {
+            const position = (value - slider.min) / (slider.max - slider.min) * sliderWidth;
+            thumbElement.style.left = `${position}px`;
+            thumbElement.textContent = value;
+        }
+        
+        // Trigger input event
+        slider.dispatchEvent(new Event('input'));
+    }
+});
+
 // Function to calculate the difference between two numbers
 function calculateDifference(value1, value2) {
     return Math.abs(value1 - value2);
