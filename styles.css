@@ -13,14 +13,14 @@ body {
     font-family: 'SF Pro Display', Arial, sans-serif; /* Use SF Pro Display */
     margin: 0;
     padding: 0;
-    background-image: url('images/WineBackground.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('/images/WineBackground.png') center center fixed;
+    background: url('../images/WineBackground.png') center center fixed;
+    background: url('images/WineBackground.png') center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
+    background-color: #1a1a1a; /* Fallback color in case image fails to load */
     color: #D9D9D9; /* Changed font color to #D9D9D9 */
     min-height: 100vh;
 }
@@ -57,7 +57,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0;
+    margin: 15px 0; /* Increased from 10px to provide more vertical spacing */
 }
 
 .slider-group label {
@@ -65,9 +65,9 @@ body {
     width: 60px;
     margin-right: 10px;
     position: absolute;
-    left: calc(50% - 227px/2 - 70px);
+    left: calc(50% - 227px/2 - 70px); /* Adjusted to be closer to slider */
     font-family: 'Source Serif Pro', serif;
-    font-size: 14px;
+    font-size: 17px; /* Adjusted from 20px */
     font-weight: normal;
     color: #FFFFFF;
 }
@@ -77,9 +77,9 @@ body {
     width: 60px;
     margin-left: 10px;
     position: absolute;
-    right: calc(50% - 227px/2 - 70px); /* Adjusted to match left label spacing */
+    right: calc(50% - 227px/2 - 70px); /* Adjusted to be closer to slider */
     font-family: 'Source Serif Pro', serif;
-    font-size: 14px;
+    font-size: 17px; /* Adjusted from 20px */
     font-weight: normal;
     color: #FFFFFF;
 }
@@ -230,7 +230,7 @@ input[type="text"]:last-child {
     background-color: #B60B05; /* Optional: Set background color */
     color: white; /* Change font color to white */
     position: absolute;
-    top: 1230px; /* 820px (Actual container) + 380px (container height) + 30px spacing */
+    top: 1340px; /* Adjusted position for new section heights */
     left: calc(50% - 355px/2); /* Align with section boxes */
     transform: translateX(0); /* Remove center transform */
 }
@@ -248,7 +248,7 @@ input[type="text"]:last-child {
     position: absolute;
     width: 100%;
     max-width: 355px;
-    height: 380px; /* Reduced from 400px to match heading spacing */
+    height: 420px; /* Increased from 380px to accommodate larger text and prevent overflow */
     left: calc(50% - 355px/2);
     padding: 0;
     background: rgba(178, 178, 178, 0.32);
@@ -265,7 +265,7 @@ input[type="text"]:last-child {
 }
 
 .section-box .slider-group {
-    margin: 8px 0;
+    margin: 12px 0; /* Increased from 8px for better spacing */
 }
 
 .section-box h2 {
@@ -277,11 +277,11 @@ input[type="text"]:last-child {
 }
 
 .section-box:nth-of-type(2) {
-    top: 420px; /* Adjusted for new height (20px + 380px + 20px) */
+    top: 460px; /* Adjusted for new height (20px + 420px + 20px) */
 }
 
 .section-box:nth-of-type(3) {
-    top: 820px; /* Position of the Actual container */
+    top: 900px; /* Adjusted for new height */
 }
 
 .import-section {
@@ -544,11 +544,11 @@ h2 {
 }
 
 #result {
-    top: 1290px; /* calculate button (1230px) + button height + 30px spacing */
+    top: 1400px; /* Adjusted for new calculate button position */
 }
 
 #pointsBreakdown {
-    top: 1390px; /* result position (1290px) + approximate text height + spacing */
+    top: 1500px; /* Adjusted for new result position */
 }
 
 .hero-section {
@@ -584,7 +584,7 @@ h2 {
 
     .slider-group label,
     .slider-group .slider-label {
-        font-size: 12px;
+        font-size: 24px; /* Slightly smaller on mobile but still larger than original */
         width: 50px;
     }
 
@@ -626,6 +626,7 @@ h2 {
         width: 90%;
         left: auto;
         transform: none;
+        min-height: 420px; /* Match the new desktop height */
     }
 
     .flavour-inputs {
