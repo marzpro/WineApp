@@ -18,6 +18,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     color: #D9D9D9; /* Changed font color to #D9D9D9 */
     min-height: 100vh;
 }
@@ -185,22 +188,19 @@ input[type="text"]:last-child {
 .flavour-inputs {
     position: relative;
     width: 100%;
-    margin-top: 2px; /* Very small margin to prevent elements from touching */
-    padding: 0; /* Remove padding completely */
-}
-
-.flavour-inputs div {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    margin: 10px 0 20px 0;
     padding: 0 20px;
-    margin-top: auto;
     box-sizing: border-box;
 }
 
+.flavour-inputs div {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
 .flavour-inputs input {
-    width: 137px;
+    width: calc(50% - 7.5px);
     height: 33px;
     background: #E2E2E2;
     border-radius: 19px;
@@ -556,13 +556,22 @@ h2 {
     display: flex;
     justify-content: center;
     position: relative;
-    margin-top: 5px; /* Reduced from 50px */
+    margin-top: 5px;
+    background-color: transparent;
 }
 
 .hero-image {
     width: 374px;
     height: 132px;
     object-fit: contain;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 480px) {
+    .hero-image {
+        width: 90%;
+        height: auto;
+    }
 }
 
 /* Mobile optimizations */
@@ -598,5 +607,63 @@ h2 {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+    
+    .container {
+        margin-top: 0;
+        min-height: 2000px;
+    }
+
+    .section-box {
+        position: relative;
+        top: auto !important;
+        margin: 20px auto;
+        width: 90%;
+        left: auto;
+        transform: none;
+    }
+
+    .flavour-inputs {
+        margin-bottom: 40px;
+    }
+
+    .calculate-button {
+        position: relative;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 20px 0;
+    }
+
+    #result, #pointsBreakdown {
+        position: relative;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 20px 0;
+    }
+
+    .flavour-inputs {
+        margin: 10px 0 30px 0;
+    }
+
+    .flavour-inputs div {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .flavour-inputs input {
+        width: 100%;
+    }
+
+    .section-box {
+        height: auto;
+        min-height: 380px;
+        padding-bottom: 20px;
     }
 }
