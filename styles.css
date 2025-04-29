@@ -1,4 +1,14 @@
 /* styles.css */
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-touch-callout: none; /* Disable callout */
+    -webkit-text-size-adjust: none; /* Disable text size adjust */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+    touch-action: manipulation; /* Disable double-tap zoom */
+}
+
 body {
     font-family: 'SF Pro Display', Arial, sans-serif; /* Use SF Pro Display */
     margin: 0;
@@ -22,6 +32,8 @@ body {
     backdrop-filter: blur(80px);
     border-radius: 20px;
     box-sizing: border-box;
+    overflow-x: hidden;
+    margin-top: 5px; /* Reduced from 20px */
 }
 
 .container::before {
@@ -173,8 +185,8 @@ input[type="text"]:last-child {
 .flavour-inputs {
     position: relative;
     width: 100%;
-    margin-top: auto;
-    padding: 10px 0; /* Reduced from 20px to 10px */
+    margin-top: 2px; /* Very small margin to prevent elements from touching */
+    padding: 0; /* Remove padding completely */
 }
 
 .flavour-inputs div {
@@ -218,9 +230,9 @@ input[type="text"]:last-child {
     background-color: #B60B05; /* Optional: Set background color */
     color: white; /* Change font color to white */
     position: absolute;
-    top: 1558px; /* 1498px + 60px spacing */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 1230px; /* 820px (Actual container) + 380px (container height) + 30px spacing */
+    left: calc(50% - 355px/2); /* Align with section boxes */
+    transform: translateX(0); /* Remove center transform */
 }
 
 .flavour-heading {
@@ -236,7 +248,7 @@ input[type="text"]:last-child {
     position: absolute;
     width: 100%;
     max-width: 355px;
-    height: 400px;
+    height: 380px; /* Reduced from 400px to match heading spacing */
     left: calc(50% - 355px/2);
     padding: 0;
     background: rgba(178, 178, 178, 0.32);
@@ -257,19 +269,19 @@ input[type="text"]:last-child {
 }
 
 .section-box h2 {
-    margin: 15px 0 8px 20px;
+    margin: 10px 0 0 20px; /* Adjust top margin to create spacing from sliders, remove bottom margin */
 }
 
 .section-box:first-of-type {
-    top: 238px;
+    top: 20px; /* Reduced from 110px */
 }
 
 .section-box:nth-of-type(2) {
-    top: 658px; /* 238px + 400px + 20px spacing */
+    top: 420px; /* Adjusted for new height (20px + 380px + 20px) */
 }
 
 .section-box:nth-of-type(3) {
-    top: 1078px; /* 658px + 400px + 20px spacing */
+    top: 820px; /* Position of the Actual container */
 }
 
 .import-section {
@@ -304,28 +316,28 @@ input[type="text"]:last-child {
 /* Style for the rating section */
 .rating-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px; /* Add spacing between the buttons and stars */
-    flex-direction: column; /* Stack elements vertically */
-    margin: 0 0 15px 0;
+    margin: -5px 0 10px 0;
+    padding: 0;
 }
 
 /* Style for the stars and buttons container */
 .stars-and-buttons {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0; /* Remove the gap property since we're using specific margins */
+    gap: 0; /* Removed gap completely */
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
 }
 
 /* Style for the rating display */
 .rating-display {
-    margin-top: 5px; /* Add space between stars and rating number */
-    font-size: 16px; /* Adjust font size */
-    color: #B60B05; /* Match the star color */
-    font-weight: bold; /* Make it bold */
-    text-align: center; /* Center the text */
+    margin-top: 4px;
+    font-size: 14px;
+    color: #B60B05;
+    font-weight: bold;
 }
 
 .rating-section {
@@ -338,26 +350,52 @@ input[type="text"]:last-child {
 }
 
 .stars {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center; /* Center align items */
     font-size: 24px;
     cursor: pointer;
-    margin: 0 20px; /* Add 20px margin on both sides of the stars */
+    margin: 0;
+    padding: 0;
+    letter-spacing: -1px; /* Adjusted from -3px to -1px to increase spacing by 2px */
 }
 
 .stars-and-buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0; /* Removed gap completely */
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.stars-and-buttons .slider-button {
+    width: 16px; /* Even smaller buttons */
+    height: 16px;
+    font-size: 10px;
+    margin: 0 -3px; /* More negative margin to pull buttons even closer */
+    position: relative;
+    z-index: 2;
+    background-color: #B60B05;
+    color: white;
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0; /* Remove the gap property since we're using specific margins */
+    padding: 0;
 }
 
 /* Default empty stars */
 .star {
-    font-size: 24px;
+    font-size: 20px; /* Slightly smaller stars */
     color: #ccc; /* Default color for empty stars */
     cursor: pointer;
     position: relative;
     display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    letter-spacing: -1px; /* Adjusted from -3px to -1px to increase spacing by 2px */
 }
 
 /* Fully filled stars */
@@ -389,10 +427,10 @@ input[type="text"]:last-child {
 }
 
 .rating-display {
-    margin-top: 5px; /* Add space between stars and rating number */
-    font-size: 16px; /* Adjust font size */
-    color: #B60B05; /* Match the star color */
-    font-weight: bold; /* Make it bold */
+    margin-top: 4px;
+    font-size: 14px;
+    color: #B60B05;
+    font-weight: bold;
     text-align: center; /* Center the text */
     position: relative; /* Ensure it stays within the section */
 }
@@ -415,9 +453,12 @@ input[type="text"]:last-child {
 
 /* Center the stars */
 #marz-stars, #june-stars, #actual-stars {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0px; /* Adjusted from -2px to 0px to increase spacing by 2px */
 }
 
 h1 {
@@ -432,7 +473,7 @@ h2 {
     font-family: 'Crimson Text', serif;
     font-weight: 700;
     font-size: 17px;
-    margin: 0 0 4px 20px; /* Reduced bottom margin from 8px to 4px */
+    margin: 0 0 0 20px; /* Remove bottom margin completely */
     color: #FFFFFF;
     align-self: flex-start;
 }
@@ -472,32 +513,90 @@ h2 {
 }
 
 .stars-and-buttons .slider-button {
-    display: flex; /* Keep buttons visible for star ratings */
+    display: flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    z-index: 1;
+    margin: 0 2px; /* Reduced from 5px to bring buttons closer to stars */
 }
 
 /* Add positioning for result elements */
-#result {
-    position: absolute;
-    top: 1620px; /* Position after the calculate button */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: left;
-    padding-left: 40px;
-    margin: 0;
+#result, #pointsBreakdown {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
     color: #FFFFFF;
-    font-size: 18px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: calc(50% - 355px/2); /* Align with section boxes */
+    transform: translateX(0); /* Remove center transform */
+    width: 355px; /* Match section box width */
+}
+
+#result {
+    top: 1290px; /* calculate button (1230px) + button height + 30px spacing */
 }
 
 #pointsBreakdown {
-    position: absolute;
-    top: 1720px; /* Position after the result */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 1390px; /* result position (1290px) + approximate text height + spacing */
+}
+
+.hero-section {
     width: 100%;
-    text-align: left;
-    padding-left: 40px;
-    margin: 0;
-    color: #FFFFFF;
-    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 5px; /* Reduced from 50px */
+}
+
+.hero-image {
+    width: 374px;
+    height: 132px;
+    object-fit: contain;
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 480px) {
+    .section-box {
+        width: 95%;
+        margin: 0 auto;
+        padding: 15px 10px;
+    }
+
+    .slider-group label,
+    .slider-group .slider-label {
+        font-size: 12px;
+        width: 50px;
+    }
+
+    .flavour-inputs div {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .flavour-inputs input {
+        width: 100%;
+    }
+
+    .import-section input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .import-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }

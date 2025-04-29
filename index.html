@@ -3,14 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Updated viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
     <title>Competitor Sliders</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon for browsers -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180"> <!-- iOS app icon -->
     
     <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&family=Pacifico&family=Crimson+Text:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&family=Pacifico&family=Crimson+Text:wght@600;700&family=Inter:wght@600&display=swap" rel="stylesheet">
     
     <!-- Sets the status bar style to transparent -->
     <meta name="mobile-web-app-capable" content="yes"> <!-- Updated meta tag -->
@@ -18,7 +19,7 @@
 </head>
 <body>
     <div class="hero-section">
-        <img src="https://via.placeholder.com/1920x1080" alt="Hero Wine" class="hero-image"> <!-- Placeholder image -->
+        <img src="images/winehero.png" alt="Hero Wine" class="hero-image"> <!-- Placeholder image -->
     </div>
     <div class="container">
         <!-- Marz Section -->
@@ -73,8 +74,8 @@
             <h2>Flavours:</h2>
             <div class="flavour-inputs"> <!-- New div for flavor inputs -->
                 <div style="display: flex; justify-content: space-between;">
-                    <input type="text" id="marzFlavor1" placeholder="Flavor One">
-                    <input type="text" id="marzFlavor2" placeholder="Flavor Two">
+                    <input type="text" id="marzFlavour1" placeholder="Flavour One">
+                    <input type="text" id="marzFlavour2" placeholder="Flavour Two">
                 </div>
             </div>
         </div>
@@ -131,8 +132,8 @@
             <h2>Flavours:</h2>
             <div class="flavour-inputs"> <!-- New div for flavor inputs -->
                 <div style="display: flex; justify-content: space-between;">
-                    <input type="text" id="juneFlavor1" placeholder="Flavor One">
-                    <input type="text" id="juneFlavor2" placeholder="Flavor Two">
+                    <input type="text" id="juneFlavour1" placeholder="Flavour One">
+                    <input type="text" id="juneFlavour2" placeholder="Flavour Two">
                 </div>
             </div>
         </div>
@@ -190,16 +191,18 @@
             <h2>Flavours:</h2>
             <div class="flavour-inputs"> <!-- New div for flavor inputs -->
                 <div style="display: flex; justify-content: space-between;">
-                    <input type="text" id="actualFlavor1" placeholder="Actual Flavor One">
-                    <input type="text" id="actualFlavor2" placeholder="Actual Flavor Two">
+                    <input type="text" id="actualFlavour1" placeholder="Actual Flavour One">
+                    <input type="text" id="actualFlavour2" placeholder="Actual Flavour Two">
                 </div>
             </div>
         </div>
 
+        <!-- Import section temporarily disabled - will be implemented later
         <div class="import-section">
             <input type="text" id="vivino-url" placeholder="Paste Vivino URL here">
             <button onclick="importWineData(document.getElementById('vivino-url').value)">Import Wine Data</button>
         </div>
+        -->
 
         <button class="calculate-button">Calculate Winner 🍷</button>
         <h2 id="result"></h2>

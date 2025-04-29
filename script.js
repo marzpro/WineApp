@@ -97,15 +97,15 @@ function calculateDifference(value1, value2) {
     return Math.abs(value1 - value2);
 }
 
-// Function to calculate flavor match score - check both flavors against both actual flavors
-function calculateFlavorMatch(userFlavors, actualFlavors) {
+// Function to calculate flavour match score - check both flavours against both actual flavours
+function calculateFlavourMatch(userFlavours, actualFlavours) {
     let score = 0;
-    const lowerUserFlavors = userFlavors.map(f => f.toLowerCase().trim()).filter(f => f); // Remove empty strings
-    const lowerActualFlavors = actualFlavors.map(f => f.toLowerCase().trim()).filter(f => f);
+    const lowerUserFlavours = userFlavours.map(f => f.toLowerCase().trim()).filter(f => f); // Remove empty strings
+    const lowerActualFlavours = actualFlavours.map(f => f.toLowerCase().trim()).filter(f => f);
     
-    // Check each user flavor against both actual flavors
-    lowerUserFlavors.forEach(userFlavor => {
-        if (lowerActualFlavors.includes(userFlavor)) {
+    // Check each user flavour against both actual flavours
+    lowerUserFlavours.forEach(userFlavour => {
+        if (lowerActualFlavours.includes(userFlavour)) {
             score++;
         }
     });
@@ -122,9 +122,9 @@ function calculateWinner() {
         drySweet: parseFloat(document.getElementById('marzSlider3').value),
         softAcidic: parseFloat(document.getElementById('marzSlider4').value),
         rating: parseFloat(document.getElementById('marz-stars').dataset.rating),
-        flavors: [
-            document.getElementById('marzFlavor1').value,
-            document.getElementById('marzFlavor2').value
+        flavours: [
+            document.getElementById('marzFlavour1').value,
+            document.getElementById('marzFlavour2').value
         ]
     };
 
@@ -134,9 +134,9 @@ function calculateWinner() {
         drySweet: parseFloat(document.getElementById('juneSlider3').value),
         softAcidic: parseFloat(document.getElementById('juneSlider4').value),
         rating: parseFloat(document.getElementById('june-stars').dataset.rating),
-        flavors: [
-            document.getElementById('juneFlavor1').value,
-            document.getElementById('juneFlavor2').value
+        flavours: [
+            document.getElementById('juneFlavour1').value,
+            document.getElementById('juneFlavour2').value
         ]
     };
 
@@ -146,9 +146,9 @@ function calculateWinner() {
         drySweet: parseFloat(document.getElementById('actualSlider3').value),
         softAcidic: parseFloat(document.getElementById('actualSlider4').value),
         rating: parseFloat(document.getElementById('actual-stars').dataset.rating),
-        flavors: [
-            document.getElementById('actualFlavor1').value,
-            document.getElementById('actualFlavor2').value
+        flavours: [
+            document.getElementById('actualFlavour1').value,
+            document.getElementById('actualFlavour2').value
         ]
     };
 
@@ -159,7 +159,7 @@ function calculateWinner() {
         drySweet: calculateDifference(marzScores.drySweet, actualScores.drySweet),
         softAcidic: calculateDifference(marzScores.softAcidic, actualScores.softAcidic),
         rating: calculateDifference(marzScores.rating, actualScores.rating),
-        flavorScore: calculateFlavorMatch(marzScores.flavors, actualScores.flavors)
+        flavourScore: calculateFlavourMatch(marzScores.flavours, actualScores.flavours)
     };
 
     const juneDiff = {
@@ -168,18 +168,18 @@ function calculateWinner() {
         drySweet: calculateDifference(juneScores.drySweet, actualScores.drySweet),
         softAcidic: calculateDifference(juneScores.softAcidic, actualScores.softAcidic),
         rating: calculateDifference(juneScores.rating, actualScores.rating),
-        flavorScore: calculateFlavorMatch(juneScores.flavors, actualScores.flavors)
+        flavourScore: calculateFlavourMatch(juneScores.flavours, actualScores.flavours)
     };
 
-    // Calculate total scores (lower is better for differences, higher is better for flavors)
+    // Calculate total scores (lower is better for differences, higher is better for flavours)
     const marzTotalDiff = marzDiff.lightBold + marzDiff.smoothTannic + 
                          marzDiff.drySweet + marzDiff.softAcidic + marzDiff.rating;
     const juneTotalDiff = juneDiff.lightBold + juneDiff.smoothTannic + 
                          juneDiff.drySweet + juneDiff.softAcidic + juneDiff.rating;
 
     // Final scores (lower is better)
-    const marzFinalScore = marzTotalDiff - marzDiff.flavorScore;
-    const juneFinalScore = juneTotalDiff - juneDiff.flavorScore;
+    const marzFinalScore = marzTotalDiff - marzDiff.flavourScore;
+    const juneFinalScore = juneTotalDiff - juneDiff.flavourScore;
 
     // Calculate who won each category
     const categories = {
@@ -188,7 +188,7 @@ function calculateWinner() {
         smoothTannic: { name: "Smooth or Tannic", marz: marzDiff.smoothTannic, june: juneDiff.smoothTannic },
         drySweet: { name: "Dry or Sweet", marz: marzDiff.drySweet, june: juneDiff.drySweet },
         softAcidic: { name: "Soft or Acidic", marz: marzDiff.softAcidic, june: juneDiff.softAcidic },
-        flavors: { name: "Flavor Notes", marz: marzDiff.flavorScore, june: juneDiff.flavorScore }
+        flavours: { name: "Flavour Notes", marz: marzDiff.flavourScore, june: juneDiff.flavourScore }
     };
 
     // Count total wins
@@ -200,8 +200,8 @@ function calculateWinner() {
     
     Object.values(categories).forEach(category => {
         let winner;
-        if (category.name === "Flavor Notes") {
-            // For flavor matches, higher is better
+        if (category.name === "Flavour Notes") {
+            // For flavour matches, higher is better
             if (category.marz > category.june) {
                 winner = "Marz";
                 marzWins++;
