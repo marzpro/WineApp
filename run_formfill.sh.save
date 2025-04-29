@@ -1,0 +1,7 @@
+     #!/bin/bash
+     python3 "/Users/Marz/Documents/Coding/Form Filler/Form Field Identifier/newformfill.py"
+   chmod +x run_formfill.sh
+   nano run_formfill.sh
+   #!/bin/bash
+   python3 "/Users/Marz/Documents/Coding/Form Filler/Form Field Identifier/newformfill.py"
+

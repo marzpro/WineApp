@@ -9,41 +9,66 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon for browsers -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180"> <!-- iOS app icon -->
     
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&family=Pacifico&family=Crimson+Text:wght@600;700&display=swap" rel="stylesheet">
+    
     <!-- Sets the status bar style to transparent -->
-    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Enable full-screen mode -->
+    <meta name="mobile-web-app-capable" content="yes"> <!-- Updated meta tag -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Transparent status bar -->
 </head>
 <body>
     <div class="hero-section">
-        <img src="HeroWine.png" alt="Hero Wine" class="hero-image"> <!-- Reference the image directly -->
+        <img src="https://via.placeholder.com/1920x1080" alt="Hero Wine" class="hero-image"> <!-- Placeholder image -->
     </div>
     <div class="container">
         <!-- Marz Section -->
         <div class="section-box">
             <h1>Marz</h1>
+            <div class="rating-section">
+                <div class="stars-and-buttons">
+                    <button class="slider-button" id="marzStarMinus">-</button>
+                    <div id="marz-stars" data-rating="3.0">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <button class="slider-button" id="marzStarPlus">+</button>
+                </div>
+                <div class="rating-display">Rating: 3.0</div>
+            </div>
             <div class="slider-group">
-                <label>Light</label>
+                <button class="slider-button">-</button>
+                <label for="marzSlider1">Light</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider1">
                 <span class="slider-label">Bold</span>
                 <span class="value-circle" id="marzCircle1">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Smooth</label>
+                <button class="slider-button">-</button>
+                <label for="marzSlider2">Smooth</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider2">
                 <span class="slider-label">Tannic</span>
                 <span class="value-circle" id="marzCircle2">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Dry</label>
+                <button class="slider-button">-</button>
+                <label for="marzSlider3">Dry</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider3">
                 <span class="slider-label">Sweet</span>
                 <span class="value-circle" id="marzCircle3">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Soft</label>
+                <button class="slider-button">-</button>
+                <label for="marzSlider4">Soft</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="marzSlider4">
                 <span class="slider-label">Acidic</span>
                 <span class="value-circle" id="marzCircle4">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <h2>Flavours:</h2>
             <div class="flavour-inputs"> <!-- New div for flavor inputs -->
@@ -57,29 +82,51 @@
         <!-- June Section -->
         <div class="section-box">
             <h1>June</h1>
+            <div class="rating-section">
+                <div class="stars-and-buttons">
+                    <button class="slider-button" id="juneStarMinus">-</button>
+                    <div id="june-stars" data-rating="3.0">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <button class="slider-button" id="juneStarPlus">+</button>
+                </div>
+                <div class="rating-display">Rating: 3.0</div>
+            </div>
             <div class="slider-group">
-                <label>Light</label>
+                <button class="slider-button">-</button>
+                <label for="juneSlider1">Light</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider1">
                 <span class="slider-label">Bold</span>
                 <span class="value-circle" id="juneCircle1">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Smooth</label>
+                <button class="slider-button">-</button>
+                <label for="juneSlider2">Smooth</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider2">
                 <span class="slider-label">Tannic</span>
                 <span class="value-circle" id="juneCircle2">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Dry</label>
+                <button class="slider-button">-</button>
+                <label for="juneSlider3">Dry</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider3">
                 <span class="slider-label">Sweet</span>
                 <span class="value-circle" id="juneCircle3">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Soft</label>
+                <button class="slider-button">-</button>
+                <label for="juneSlider4">Soft</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="juneSlider4">
                 <span class="slider-label">Acidic</span>
                 <span class="value-circle" id="juneCircle4">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <h2>Flavours:</h2>
             <div class="flavour-inputs"> <!-- New div for flavor inputs -->
@@ -93,29 +140,51 @@
         <!-- Actual Section -->
         <div class="section-box">
             <h1>Actual</h1>
+            <div class="rating-section">
+                <div class="stars-and-buttons">
+                    <button class="slider-button" id="actualStarMinus">-</button>
+                    <div id="actual-stars" data-rating="3.0">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <button class="slider-button" id="actualStarPlus">+</button>
+                </div>
+                <div class="rating-display">Rating: 3.0</div>
+            </div>
             <div class="slider-group">
-                <label>Light</label>
+                <button class="slider-button">-</button>
+                <label for="actualSlider1">Light</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider1">
                 <span class="slider-label">Bold</span>
                 <span class="value-circle" id="actualCircle1">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Smooth</label>
+                <button class="slider-button">-</button>
+                <label for="actualSlider2">Smooth</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider2">
                 <span class="slider-label">Tannic</span>
                 <span class="value-circle" id="actualCircle2">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Dry</label>
+                <button class="slider-button">-</button>
+                <label for="actualSlider3">Dry</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider3">
                 <span class="slider-label">Sweet</span>
                 <span class="value-circle" id="actualCircle3">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
             <div class="slider-group">
-                <label>Soft</label>
+                <button class="slider-button">-</button>
+                <label for="actualSlider4">Soft</label>
                 <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="actualSlider4">
                 <span class="slider-label">Acidic</span>
                 <span class="value-circle" id="actualCircle4">3</span> <!-- Moved to the right -->
+                <button class="slider-button">+</button>
             </div>
 
             <h2>Flavours:</h2>
@@ -125,6 +194,11 @@
                     <input type="text" id="actualFlavor2" placeholder="Actual Flavor Two">
                 </div>
             </div>
+        </div>
+
+        <div class="import-section">
+            <input type="text" id="vivino-url" placeholder="Paste Vivino URL here">
+            <button onclick="importWineData(document.getElementById('vivino-url').value)">Import Wine Data</button>
         </div>
 
         <button class="calculate-button">Calculate Winner 🍷</button>
