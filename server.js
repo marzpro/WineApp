@@ -8,15 +8,21 @@ const app = express();
 // Enable CORS
 app.use(cors());
 
-// Middleware
-app.use(express.json());
-app.use(express.static(path.join(__dirname)));
-
-// Debug logging middleware
+// Debug logging middleware (move this before static file middleware)
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
+    if (req.url.includes('WineBackground.png')) {
+        console.log('Background image requested from:', req.url);
+        console.log('Full path:', path.join(__dirname, req.url));
+    }
     next();
 });
+
+// Serve static files with explicit paths for images
+app.use(express.json());
+app.use('/', express.static(path.join(__dirname)));
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/WineBackground.png', express.static(path.join(__dirname, 'images/WineBackground.png')));
 
 // Endpoint to handle wine scraping
 app.post('/scrape-wine', async (req, res) => {
